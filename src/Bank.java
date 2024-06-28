@@ -1,10 +1,13 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Bank {
 
-    private final Account[] accounts;
+    private final List<Account> accounts;
     private int totalAccount;
 
     public Bank() {
-        accounts = new Account[10];
+        accounts = new ArrayList<>();
         totalAccount = 0;
     }
 
@@ -15,8 +18,8 @@ public class Bank {
      */
     public void addAccount(String accountNo, String name) {
         Account account = new Account(accountNo, name);
-        accounts[totalAccount] = account;
-        totalAccount = accounts.length;
+        accounts.add(account);
+        totalAccount++;
     }
 
     /**
@@ -38,22 +41,21 @@ public class Bank {
      * @param name: 소유주 명
      * @return Account[]
      */
-    public Account[] findAccounts(String name) {
-        Account[] accounts = new Account[10];
-        int count = 0;
-        for (Account account : accounts) {
+    public List<Account> findAccounts(String name) {
+        List<Account> accounts = new ArrayList<>();
+        for (Account account : getAccounts()) {
             if (account.getName().equals(name)) {
-                accounts[count++] = account;
+                accounts.add(account);
             }
         }
-        return null; // TODO: 계좌 없음 -> 예외
+        return accounts;
     }
 
     /**
      * 계좌 목록 조회
      * @return Account[]
      */
-    public Account[] getAccounts() {
+    public List<Account> getAccounts() {
         return accounts;
     }
 
