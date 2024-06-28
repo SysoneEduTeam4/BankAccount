@@ -25,8 +25,12 @@ public class Bank {
      * @return Account
      */
     public Account getAccount(String accountNo) {
-        Account acc = new Account();
-        return acc;
+        for (Account account : accounts) {
+            if (account.getAccountNo().equals(accountNo)) {
+                return account;
+            }
+        }
+        return null; // TODO: 계좌 없음 -> 예외
     }
 
     /**
@@ -35,7 +39,14 @@ public class Bank {
      * @return Account[]
      */
     public Account[] findAccounts(String name) {
-        return new Account[0];
+        Account[] accounts = new Account[10];
+        int count = 0;
+        for (Account account : accounts) {
+            if (account.getName().equals(name)) {
+                accounts[count++] = account;
+            }
+        }
+        return null; // TODO: 계좌 없음 -> 예외
     }
 
     /**
