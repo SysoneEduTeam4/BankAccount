@@ -5,12 +5,13 @@ public class Transaction {
 	private String kind;
 	private long amount;
 	 private long balance;
+	private DateTime datetime;
 	
-	
-	public Transaction(String transactionDate, String transactionTime, String kind, long amount, long balance) {
+	public Transaction (String kind, long amount, long balance) {
 		super();
-		this.transactionDate = transactionDate;
-		this.transactionTime = transactionTime;
+		DateTime datetime = new DateTime();
+		this.transactionDate = datetime.getDate();
+		this.transactionTime = datetime.getTime();
 		this.kind = kind;
 		this.amount = amount;
 		this.balance = balance;
@@ -18,33 +19,29 @@ public class Transaction {
 	public String getTransactionDate() {
 		return transactionDate;
 	}
-	public void setTransactionDate(String transactionDate) {
-		this.transactionDate = transactionDate;
-	}
+
 	public String getTransactionTime() {
 		return transactionTime;
 	}
-	public void setTransactionTime(String transactionTime) {
-		this.transactionTime = transactionTime;
-	}
+	
 	public String getKind() {
 		return kind;
 	}
-	public void setKind(String kind) {
-		this.kind = kind;
-	}
+	
 	public long getAmount() {
 		return amount;
 	}
-	public void setAmount(long amount) {
-		this.amount = amount;
-	}
+
 	public long getBalance() {
 		return balance;
 	}
-	public void setBalance(long balance) {
-		this.balance = balance;
+	public void printTransactionList() {
+		System.out.println("[ 거래금액 :"+getAmount()+"원, 잔액 : "+getBalance()+"원 /"+getTransactionDate()+" "+getTransactionTime()+"]");
+		
+		
+		
 	}
+
 	
 
 }
