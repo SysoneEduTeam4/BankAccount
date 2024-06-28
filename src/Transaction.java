@@ -1,50 +1,61 @@
 
 public class Transaction {
-	private String transactionDate;
-	private String transactionTime;
-	private String kind;
-	private long amount;
-	 private long balance;
+	private String transactionDate; //거래일
+	private String transactionTime; //거래시간
+	private String kind; //구분(입금 또는 출금)
+	private long amount; //거래금액
+	 private long balance; //잔고
+	private DateTime datetime; //날짜 받기
 	
-	
-	public Transaction(String transactionDate, String transactionTime, String kind, long amount, long balance) {
+	public Transaction (String kind, long amount, long balance) {
 		super();
-		this.transactionDate = transactionDate;
-		this.transactionTime = transactionTime;
+		DateTime datetime = new DateTime(); 
+		this.transactionDate = datetime.getDate(); //현재 날짜 받아오기
+		this.transactionTime = datetime.getTime(); //현재 시간 받아오기
 		this.kind = kind;
 		this.amount = amount;
 		this.balance = balance;
 	}
-	public String getTransactionDate() {
+	/*
+	 날짜 반환 메소드
+	 */
+	public String getTransactionDate() { 
 		return transactionDate;
 	}
-	public void setTransactionDate(String transactionDate) {
-		this.transactionDate = transactionDate;
-	}
+	/*
+	 시간 반환 메소드
+	 */
 	public String getTransactionTime() {
 		return transactionTime;
 	}
-	public void setTransactionTime(String transactionTime) {
-		this.transactionTime = transactionTime;
-	}
+	/*
+	구분 반환 메소드
+	 */
 	public String getKind() {
 		return kind;
 	}
-	public void setKind(String kind) {
-		this.kind = kind;
-	}
+	/*
+	 거래금액 반환 메소드
+	 */
 	public long getAmount() {
 		return amount;
 	}
-	public void setAmount(long amount) {
-		this.amount = amount;
-	}
+	/*
+	 잔고 반환 메소드
+	 */
 	public long getBalance() {
 		return balance;
 	}
-	public void setBalance(long balance) {
-		this.balance = balance;
+	/*
+	 거래내역 출력 메서드
+	 */
+	public void printTransactionList() {
+		System.out.println("[ 거래금액 :"+getAmount()+"원, 잔액 : "+getBalance()+"원 /"+getTransactionDate()+" "+getTransactionTime()+"]");
+		
+		
+		
 	}
+
 	
 
 }

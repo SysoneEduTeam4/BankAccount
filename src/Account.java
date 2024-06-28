@@ -4,7 +4,7 @@ public class Account {
 	private String name;
 	private long balance;
 	private Transaction[] transactions;
-	
+
 	public Account(String accountNo) {
 		this.accountNo = accountNo;
 	}
@@ -38,7 +38,12 @@ public class Account {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
+	public long getBalance() {
+		return balance;
+	}
+  
+	//잔고
 	public void setBalance(long balance) {
 		this.balance = balance;
 	}
@@ -53,18 +58,18 @@ public class Account {
 		
 		this.transactions = transactions;
 	}
-	
+
 	//입금 메서드
 	public void deposit(long amount) {
+
 		balance += amount;
 		Transaction tt = new Transaction(amount, balance);
-		this.transactions.
 		System.out.println(amount +"원 입금하셨습니다.");
-		
-	}
-	
+  }
+
 	//출금 메서드
 	public void withdraw(long amount) {
+
 		balance -= amount;
 		Transaction tt = new Transaction(amount, balance);
 		System.out.println(amount + "원 인출하셨습니다.");		
@@ -74,7 +79,9 @@ public class Account {
 		return balance;
 	}
 	
-	
-	
-	
+	//거래내역 메서드
+	public Transaction[] getTransactions() {
+
+	}
+
 }
