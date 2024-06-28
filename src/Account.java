@@ -47,7 +47,6 @@ public class Account {
 	}
 
 	public void setTransactions(List<Transaction> transactions) {
-		
 		this.transactions = transactions;
 	}
 
@@ -56,14 +55,22 @@ public class Account {
 		System.out.println(amount +"원 입금하셨습니다.");
 		balance += amount;
 		Transaction tt = new Transaction("입금", amount, balance);
+		transactions.add(tt);
   }
 
 	//출금 메서드
 	public void withdraw(long amount) {
-		System.out.println(amount + "원 인출하셨습니다.");		
-		balance -= amount;
-		Transaction tt = new Transaction("출금", amount, balance);
+		if(balance <= 0) {	//잔고 0일 때
+			System.out.println("잔고가 0원 이므로 인출할 수 없습니다.");
+			return;
+		} else {
+			System.out.println(amount + "원 인출하셨습니다.");
+			balance -= amount;
+			Transaction tt = new Transaction("출금", amount, balance);
+			transactions.add(tt);
+		}
 	}
+	
 	//잔고 확인
 	public long getBalance() {
 		return balance;
@@ -73,5 +80,5 @@ public class Account {
 	public List<Transaction> getTransactions() {
 		return transactions;
 	}
-
+	
 }

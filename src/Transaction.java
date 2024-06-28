@@ -16,6 +16,16 @@ public class Transaction {
 		this.amount = amount;
 		this.balance = balance;
 	}
+	
+	public Transaction(long amount, long balance) {
+		super();
+		DateTime datetime = new DateTime(); 
+		this.transactionDate = datetime.getDate(); //현재 날짜 받아오기
+		this.transactionTime = datetime.getTime(); //현재 시간 받아오기
+		this.amount = amount;
+		this.balance = balance;
+	}
+
 	/*
 	 날짜 반환 메소드
 	 */
@@ -51,9 +61,7 @@ public class Transaction {
 	 */
 	public void printTransactionList() {
 		System.out.println("[ 거래금액 :"+getAmount()+"원, 잔액 : "+getBalance()+"원 /"+getTransactionDate()+" "+getTransactionTime()+"]");
-		
-		
-		
+
 	}
 
 	
