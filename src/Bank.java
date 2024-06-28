@@ -1,24 +1,22 @@
 public class Bank {
 
-    private Account[] accounts;
+    private final Account[] accounts;
     private int totalAccount;
 
-    public Bank() {}
-
-    public Bank(Account[] accounts, int totalAccount) {
-        this.accounts = accounts;
-        this.totalAccount = totalAccount;
+    public Bank() {
+        accounts = new Account[10];
+        totalAccount = 0;
     }
 
     /**
      * 계좌 등록 메서드
      * @param accountNo: 계좌 번호
      * @param name: 소유주 명
-     * @return String
      */
-    public String addAccount(String accountNo, String name) {
-
-        return "";
+    public void addAccount(String accountNo, String name) {
+        Account account = new Account(accountNo, name);
+        accounts[totalAccount] = account;
+        totalAccount = accounts.length;
     }
 
     /**
