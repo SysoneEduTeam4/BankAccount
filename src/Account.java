@@ -52,21 +52,28 @@ public class Account {
 
 	//입금 메서드
 	public void deposit(long amount) {
+		DateTime datetime = new DateTime();
+		String day = datetime.date;
+		String time = datetime.time;
 		System.out.println(amount +"원 입금하셨습니다.");
 		balance += amount;
-		Transaction tt = new Transaction("입금", amount, balance);
+		Transaction tt = new Transaction("입금", amount, balance,day,time);
 		transactions.add(tt);
   }
 
 	//출금 메서드
 	public void withdraw(long amount) {
-		if(balance <= 0) {	//잔고 0일 때
-			System.out.println("잔고가 0원 이므로 인출할 수 없습니다.");
+		DateTime datetime = new DateTime();
+		String day = datetime.date;
+		String time = datetime.time;
+		if(amount>balance) {	//잔고 0일 때
+			System.out.println("출금액이 현재 잔액보다 큽니다.");
+			System.out.println("현재 잔액"+balance);
 			return;
 		} else {
 			System.out.println(amount + "원 인출하셨습니다.");
 			balance -= amount;
-			Transaction tt = new Transaction("출금", amount, balance);
+			Transaction tt = new Transaction("출금", amount, balance,day,time);
 			transactions.add(tt);
 		}
 	}

@@ -7,11 +7,10 @@ public class Transaction {
 	 private long balance; //잔고
 	private DateTime datetime; //날짜 받기
 	
-	public Transaction (String kind, long amount, long balance) {
+	public Transaction (String kind, long amount, long balance, String transactionDate, String transactionTime) {
 		super();
-		DateTime datetime = new DateTime(); 
-		this.transactionDate = datetime.getDate(); //현재 날짜 받아오기
-		this.transactionTime = datetime.getTime(); //현재 시간 받아오기
+		this.transactionDate = transactionDate;
+		this.transactionTime = transactionTime;
 		this.kind = kind;
 		this.amount = amount;
 		this.balance = balance;
