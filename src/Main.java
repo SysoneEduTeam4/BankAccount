@@ -1,46 +1,83 @@
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Scanner;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
 
     public static void main(String[] args) {
-        Scanner sc= new Scanner(System.in);
-        systemOn();
-        int selectNum = sc.nextInt();
-        List<Account> accountsList = new LinkedList<>();
         Bank bank = new Bank();
-        loadingPrevData(accountsList);
+        bank.addAccount("10071", "백");
+        bank.addAccount("890113", "택");
+        bank.addAccount("0113", "택");
+        bank.addAccount("987654321", "두팔");
 
-        switch (selectNum){
-            case 1:
-                break;
-            case 2:
-                break;
-            case 3:
-                break;
-            case 4:
-                break;
+        System.out.println("= 전체 계좌 목록 =");
+        for (Account account: bank.getAccounts()) {
+            System.out.println("[계좌번호 : " + account.getAccountNo() + ", 소유자 명 : " + account.getName() + ", 잔액 : " + account.getBalance() + "]");
+        }
+        System.out.println();
+
+        System.out.println("= 해당 계좌번호의 계좌정보 ="); // 890113, 택
+        Account account = bank.getAccount("890113");
+        System.out.println("[계좌번호 : " + account.getAccountNo() + ", 소유자 명 : " + account.getName() + ", 잔액 : " + account.getBalance() + "]");
+        System.out.println();
+
+        account.deposit(200000);
+        System.out.println("현재 잔액은 "+ account.getBalance() + "원 입니다.");
+        System.out.println();
+
+        System.out.println("= 해당 계좌번호의 계좌정보 =");
+        System.out.println("[계좌번호 : " + account.getAccountNo() + ", 소유자 명 : " + account.getName() + ", 잔액 : " + account.getBalance() + "]");
+        System.out.println();
+
+        account.deposit(200000);
+        System.out.println("현재 잔액은 "+ account.getBalance() + "원 입니다.");
+        System.out.println();
+
+        System.out.println("= 해당 계좌번호의 계좌정보 =");
+        System.out.println("[계좌번호 : " + account.getAccountNo() + ", 소유자 명 : " + account.getName() + ", 잔액 : " + account.getBalance() + "]");
+        System.out.println();
+
+        System.out.println("= 해당 소유자명의 계좌 목록 =");
+        List<Account> account1 = bank.findAccounts("택");
+        for(Account account2 : account1) {
+            System.out.println("[계좌번호 : " + account2.getAccountNo() + ", 소유자 명 : " + account2.getName() + ", 잔액 : " + account2.getBalance() + "]");
+        }
+        System.out.println();
+
+        System.out.println("= 해당 계좌번호의 계좌정보 =");
+        Account account3 = bank.getAccount("011");
+        if (account3 == null) {
+            System.out.println();
+        } else {
+            System.out.println("[계좌번호 : " + account3.getAccountNo() + ", 소유자 명 : " + account3.getName() + ", 잔액 : " + account3.getBalance() + "]");
+            System.out.println();
+        }
+
+        System.out.println("= 해당 소유자명의 계좌 목록 =");
+        List<Account> account4 = bank.findAccounts("희정");
+        if (account4 == null) {
+            System.out.println();
+        } else {
+            for(Account account5 : account4) {
+                System.out.println("[계좌번호 : " + account5.getAccountNo() + ", 소유자 명 : " + account5.getName() + ", 잔액 : " + account5.getBalance() + "]");
+            }
+        }
+
+        System.out.println("= 해당 계좌번호의 계좌정보 ="); // 890113, 택
+        System.out.println("[계좌번호 : " + account.getAccountNo() + ", 소유자 명 : " + account.getName() + ", 잔액 : " + account.getBalance() + "]");
+        System.out.println();
+
+        account.withdraw(5500);
+        System.out.println("현재 잔액은 "+ account.getBalance() + "원 입니다.");
+        System.out.println();
+
+        System.out.println("= 해당 계좌번호의 계좌정보 =");
+        System.out.println("[계좌번호 : " + account.getAccountNo() + ", 소유자 명 : " + account.getName() + ", 잔액 : " + account.getBalance() + "]");
+        System.out.println();
+
+        System.out.println("= 거래 내역 =");
+        for(Transaction tt : account.getTransactions()) {
+            tt.printTransactionList();
         }
     }
 
-    private static void loadingPrevData( List<Account> accountsList) {
-        accountsList.add(new Account("10071","백"));
-        accountsList.add(new Account("890113","택"));
-        accountsList.add(new Account("0113","택"));
-        accountsList.add(new Account("987654321","두팔"));
-    }
-
-    private static void bankCreate() {
-    }
-
-    public static void systemOn(){
-        System.out.println("===============================");
-        System.out.println("   KOSA 은행프로그램을 실행합니다   ");
-        System.out.println("===============================");
-        System.out.println("원하시는 기능을 선택하세요");
-        System.out.println("1. 계좌 생성\n 2. 계좌 찾기\n 3. 계좌 목록 조회\n 4. 총계좌수 \n 5. 프로그램 종료");
-    }
 }
