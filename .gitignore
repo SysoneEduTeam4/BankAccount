@@ -253,3 +253,5 @@ $RECYCLE.BIN/
 .bin/
 .obj/
 /bank_account.iml
+!/.classpath
+!/.project
