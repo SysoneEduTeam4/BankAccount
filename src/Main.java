@@ -5,12 +5,7 @@ public class Main {
     public static void main(String[] args) {
         Bank bank = new Bank();
         addSampleData(bank);
-
-        System.out.println("= 전체 계좌 목록 =");
-        for (Account account: bank.getAccounts()) {
-            System.out.println("[계좌번호 : " + account.getAccountNo() + ", 소유자 명 : " + account.getName() + ", 잔액 : " + account.getBalance() + "]");
-        }
-        System.out.println();
+        displayAllAccounts(bank);
 
         System.out.println("= 해당 계좌번호의 계좌정보 ="); // 890113, 택
         Account account = bank.getAccount("890113");
@@ -75,6 +70,18 @@ public class Main {
         for(Transaction tt : account.getTransactions()) {
             tt.printTransactionList();
         }
+    }
+
+    private static void displayAllAccounts(Bank bank) {
+        System.out.println("= 전체 계좌 목록 =");
+        for (Account account: bank.getAccounts()) {
+            printAccountInfo(account);
+        }
+        System.out.println();
+    }
+
+    private static void printAccountInfo(Account account) {
+        System.out.printf("[계좌번호 : %s, 소유자 명 : %s, 잔액 : %,d원]%n", account.getAccountNo(), account.getName(), account.getBalance());
     }
 
     private static void addSampleData(Bank bank) {
