@@ -1,5 +1,7 @@
 # 조별 주말 과제 - 은행 계좌
 
+## 🗓️ [계획](https://github.com/SysoneEduTeam4/BankAccount/issues/15)
+
 ## 🚀 기능 요구 사항
 
 초간단 은행 계좌 시스템을 구현한다.
