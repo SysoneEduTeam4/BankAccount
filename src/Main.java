@@ -4,10 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
         Bank bank = new Bank();
-        bank.addAccount("10071", "백");
-        bank.addAccount("890113", "택");
-        bank.addAccount("0113", "택");
-        bank.addAccount("987654321", "두팔");
+        addSampleData(bank);
 
         System.out.println("= 전체 계좌 목록 =");
         for (Account account: bank.getAccounts()) {
@@ -78,6 +75,13 @@ public class Main {
         for(Transaction tt : account.getTransactions()) {
             tt.printTransactionList();
         }
+    }
+
+    private static void addSampleData(Bank bank) {
+        bank.addAccount("10071", "백");
+        bank.addAccount("890113", "택");
+        bank.addAccount("0113", "택");
+        bank.addAccount("987654321", "두팔");
     }
 
 }
