@@ -3,13 +3,8 @@ import java.util.List;
 
 public class Bank {
 
-    private final List<Account> accounts;
+    private final List<Account> accounts = new ArrayList<>();
     private int totalAccount;
-
-    public Bank() {
-        accounts = new ArrayList<>();
-        totalAccount = 0;
-    }
 
     /**
      * 계좌 등록 메서드
