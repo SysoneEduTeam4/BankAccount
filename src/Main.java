@@ -27,7 +27,7 @@ public class Main {
     private static void displayTransactions(Account account) {
         System.out.println("= 거래 내역 =");
         for(Transaction transaction : account.getTransactions()) {
-            transaction.printTransactionList();
+            System.out.println(transaction);
         }
     }
 
@@ -49,7 +49,7 @@ public class Main {
     private static void displayAccountsByName(List<Account> accounts) {
         System.out.println("= 해당 소유자명의 계좌 목록 =");
         for(Account account : accounts) {
-            printAccountInfo(account);
+            System.out.println(account);
         }
         System.out.println();
     }
@@ -72,7 +72,7 @@ public class Main {
     private static void displayAccountByNo(Account account) {
         System.out.println("= 해당 계좌번호의 계좌정보 =");
         if (account != null) {
-            printAccountInfo(account);
+            System.out.println(account);
         }
         System.out.println();
     }
@@ -84,17 +84,9 @@ public class Main {
     private static void displayAllAccounts(Bank bank) {
         System.out.println("= 전체 계좌 목록 =");
         for (Account account: bank.getAccounts()) {
-            printAccountInfo(account);
+            System.out.println(account);
         }
         System.out.println();
-    }
-
-    /**
-     * 계좌 정보를 출력 형식에 맞춰 출력하는 메서드
-     * @param account: 출력할 계좌 객체
-     */
-    private static void printAccountInfo(Account account) {
-        System.out.printf("[계좌번호 : %s, 소유자 명 : %s, 잔액 : %d]%n", account.getAccountNo(), account.getName(), account.getBalance());
     }
 
     /**
