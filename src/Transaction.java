@@ -43,14 +43,14 @@ public class Transaction {
      */
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
+        StringBuffer sb = new StringBuffer();
         sb.append("[거래금액 :")
-                .append(this.amount)
+                .append(amount)
                 .append("원, 잔액 : ")
-                .append(this.balance)
+                .append(balance)
                 .append("원 /")
-                .append(this.transactionDate)
-                .append(this.transactionTime)
+                .append(transactionDate)
+                .append(transactionTime)
                 .append("]");
         return sb.toString();
     }

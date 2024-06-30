@@ -60,13 +60,13 @@ public class Account {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
+        StringBuffer sb = new StringBuffer();
         sb.append("[계좌번호 : ")
-                .append(this.accountNo)
+                .append(accountNo)
                 .append(", 소유자 명 : ")
-                .append(this.getName())
+                .append(name)
                 .append(", 잔액 : ")
-                .append(this.getBalance())
+                .append(balance)
                 .append("]");
         return sb.toString();
     }
