@@ -58,4 +58,16 @@ public class Account {
         return transactions;
     }
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("[계좌번호 : ")
+                .append(this.accountNo)
+                .append(", 소유자 명 : ")
+                .append(this.getName())
+                .append(", 잔액 : ")
+                .append(this.getBalance())
+                .append("]");
+        return sb.toString();
+    }
 }

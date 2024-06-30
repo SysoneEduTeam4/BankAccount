@@ -6,7 +6,7 @@ public class Transaction {
     private final String kind; //구분(입금 또는 출금)
     private final long amount; //거래금액
     private final long balance; //잔고
-    private DateTime datetime; //날짜 받기
+
 
     public Transaction(String kind, long amount, long balance, String transactionDate,
             String transactionTime) {
@@ -15,20 +15,6 @@ public class Transaction {
         this.kind = kind;
         this.amount = amount;
         this.balance = balance;
-    }
-
-    /*
-     날짜 반환 메소드
-     */
-    public String getTransactionDate() {
-        return transactionDate;
-    }
-
-    /*
-     시간 반환 메소드
-     */
-    public String getTransactionTime() {
-        return transactionTime;
     }
 
     /*
@@ -55,12 +41,17 @@ public class Transaction {
     /*
      거래내역 출력 메서드
      */
-    public void printTransactionList() {
-        System.out.println(
-                "[ 거래금액 :" + getAmount() + "원, 잔액 : " + getBalance() + "원 /" + getTransactionDate()
-                        + " " + getTransactionTime() + "]");
-
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("[거래금액 :")
+                .append(this.amount)
+                .append("원, 잔액 : ")
+                .append(this.balance)
+                .append("원 /")
+                .append(this.transactionDate)
+                .append(this.transactionTime)
+                .append("]");
+        return sb.toString();
     }
-
-
 }
