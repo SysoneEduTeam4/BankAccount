@@ -18,7 +18,7 @@ public class Account {
 		this.transactions = new ArrayList<Transaction>(); 
 	}
 	
-	public Account(String accountNo, String name, long balance, Transaction[] transactions) {
+	public Account(String accountNo, String name, long balance, List<Transaction> transactions) {
 		this.accountNo = accountNo;
 		this.name = name;
 		this.balance = balance;
