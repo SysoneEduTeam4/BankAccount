@@ -238,12 +238,15 @@ public static void main(String[] args) {
     @AllArgsConstructor(access = AccessLevel.PRIVATE) : @Builder 어노테이션을 선언하면 전체 인자를 갖는 생성자를 자동으로 만드는데, 이를 private 생성자로 설정
     
     @ToString : toString()메서드 자동 생성
-  
+    
+    ```java
     public static void main(String[] args) {
-  	Bag bag = Bag.Builder("홍길동". 1000) //필수 파라미터
-  				.memo("this is memo")
-  				.letter("this is letter")
-  				.box("this is box")
-  				
-  	System.out.println(bag);
-  }
+    	Bag bag = Bag.Builder("홍길동". 1000) //필수 파라미터
+    				.memo("this is memo")
+    				.letter("this is letter")
+    				.box("this is box")
+    				
+    	System.out.println(bag);
+    }
+    
+    ```
