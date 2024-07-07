@@ -63,11 +63,11 @@ public class CategoryModel {
 
 1) https://projectlombok.org/download 접속하여 다운로드 후  .jar 실행하여 IDE 가 위치한 경로 선택
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9854f7f1-ab70-474e-b385-9eb124b0ec75/ef74f922-3ee8-43ce-a643-efb362ea6194/Untitled.png)
+![Untitled](https://github.com/SysoneEduTeam4/BankAccount/assets/81544639/53b2936b-c5f8-4d84-b375-ddbf1af6852a)
 
 2) eclipse.exe파일이 있는 곳에 lombok.jar 확인
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9854f7f1-ab70-474e-b385-9eb124b0ec75/93928aa4-54fd-4ab9-be49-b24e13a8a6cf/Untitled.png)
+![Untitled (1)](https://github.com/SysoneEduTeam4/BankAccount/assets/81544639/6e3fd3ef-50eb-498b-b0f5-9f3419c27a2e)
 
 **3) Lombok 초기 설정**
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9854f7f1-ab70-474e-b385-9eb124b0ec75/df9419cb-fc57-47cb-8695-c44b0b8456e0/Untitled.png)
+![Untitled (2)](https://github.com/SysoneEduTeam4/BankAccount/assets/81544639/1f52f460-e9ef-4167-ad6f-225fb9e6f9f5)
