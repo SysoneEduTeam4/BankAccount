@@ -4,6 +4,7 @@
 
 사용자가 `controller`를 사용하게 되면 `controller`는 `model`에게서 데이터를 받아오고 받아온 데이터를 통해 `view`에서 시각적인 부분을 제어하여 사용자에게 전달 
 
+https://github.com/SysoneEduTeam4/BankAccount/issues/23#issuecomment-2212615578
 ### 모델 , Model
 
 애플리케이션의 정보 , 데이터 
