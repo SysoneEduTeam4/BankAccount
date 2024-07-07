@@ -8,7 +8,8 @@ MVC는 애플리케이션의 사용자 인터페이스, 비즈니스 로직, 데
 
 **Controller** : 사용자의 입력을 받아 처리하고, 적절한 응답을 생성하기 위해 모델과 뷰를 조정한다.
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9854f7f1-ab70-474e-b385-9eb124b0ec75/99bd5c8a-41c1-4bd8-aaef-464098b6983d/Untitled.png)
+![Untitled](https://github.com/SysoneEduTeam4/BankAccount/assets/81544639/53b2936b-c5f8-4d84-b375-ddbf1af6852a)
+
 
 ## Model
 
