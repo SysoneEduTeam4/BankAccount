@@ -1,6 +1,9 @@
 import java.util.List;
+import model.Account;
+import model.Bank;
+import model.Transaction;
 
-public class Main {
+public class BankAccountApplication {
 
     public static void main(String[] args) {
         Bank bank = new Bank();
