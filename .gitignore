@@ -253,5 +253,8 @@ $RECYCLE.BIN/
 .bin/
 .obj/
 /bank_account.iml
-!/.classpath
-!/.project
+/.classpath
+/.project
+/target/
+/.idea/compiler.xml
+/.idea/jarRepositories.xml
