@@ -54,10 +54,10 @@ public class Account {
      * @return Transaction 객체
      */
     private Transaction createTransaction(String kind, long amount) {
-        DateTime datetime = new DateTime();
+        DateTime dateTime = new DateTime();
         return Transaction.builder()
-                .transactionDate(datetime.getDate())
-                .transactionTime(datetime.getTime())
+                .transactionDate(dateTime.getDate())
+                .transactionTime(dateTime.getTime())
                 .kind(kind)
                 .amount(amount)
                 .balance(balance)
