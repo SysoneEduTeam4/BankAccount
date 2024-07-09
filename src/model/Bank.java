@@ -1,6 +1,10 @@
+package model;
+
 import java.util.ArrayList;
 import java.util.List;
+import lombok.Getter;
 
+@Getter
 public class Bank {
 
     private final List<Account> accounts = new ArrayList<>();
@@ -44,22 +48,6 @@ public class Bank {
             }
         }
         return accounts;
-    }
-
-    /**
-     * 계좌 목록 조회
-     * @return Account[]
-     */
-    public List<Account> getAccounts() {
-        return accounts;
-    }
-
-    /**
-     * 총 계좌수 조회
-     * @return
-     */
-    public int getTotalAccount() {
-        return totalAccount;
     }
 
 }
