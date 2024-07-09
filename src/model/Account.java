@@ -26,24 +26,19 @@ public class Account {
      * 입금 메서드
      * @param amount: 입금 금액
      */
-    public void deposit(long amount) {
-        System.out.println(amount + "원 입금하셨습니다.");
+    public void deposit(long amount, String kind) {
         balance += amount;
-        transactions.add(createTransaction("입금", amount));
+        transactions.add(createTransaction(kind, amount));
     }
 
     /**
      * 출금 메서드
      * @param amount: 출금 금액
      */
-    public void withdraw(long amount) {
-        if (amount > balance) {    //잔고 0일 때
-            System.out.println("출금액이 현재 잔액보다 큽니다.");
-            System.out.println("현재 잔액" + balance);
-        } else {
-            System.out.println(amount + "원 인출하셨습니다.");
+    public void withdraw(long amount, String kind) {
+        if (amount <= balance) {
             balance -= amount;
-            transactions.add(createTransaction("출금", amount));
+            transactions.add(createTransaction(kind, amount));
         }
     }
 
