@@ -8,7 +8,6 @@ import lombok.Getter;
 public class Bank {
 
     private final List<Account> accounts = new ArrayList<>();
-    private int totalAccount;
 
     /**
      * 계좌 등록 메서드
@@ -18,7 +17,6 @@ public class Bank {
     public void addAccount(String accountNo, String name) {
         Account account = new Account(accountNo, name);
         accounts.add(account);
-        totalAccount++;
     }
 
     /**
@@ -48,6 +46,14 @@ public class Bank {
             }
         }
         return accounts;
+    }
+
+    /**
+     * 총 계좌수 조회 메서드
+     * @return Account 개수
+     */
+    public int getTotalAccount() {
+        return accounts.size();
     }
 
 }
