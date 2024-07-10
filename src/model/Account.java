@@ -2,7 +2,11 @@ package model;
 
 import java.util.ArrayList;
 import java.util.List;
+import lombok.Builder;
+import lombok.Getter;
 
+@Getter
+@Builder
 public class Account {
 
     private final String accountNo;
@@ -15,14 +19,6 @@ public class Account {
         this.name = name;
     }
 
-    public String getAccountNo() {
-        return accountNo;
-    }
-
-    public String getName() {
-        return name;
-    }
-
     //입금 메서드
     public void deposit(long amount) {
         DateTime datetime = new DateTime();
@@ -30,7 +26,13 @@ public class Account {
         String time = datetime.getTime();
         System.out.println(amount + "원 입금하셨습니다.");
         balance += amount;
-        Transaction tt = new Transaction("입금", amount, balance, day, time);
+        Transaction tt = new Transaction.TransactionBuilder()
+                            .transactionDate(day)
+                            .transactionTime(time)
+                            .kind("입금")
+                            .amount(amount)
+                            .balance(balance)
+                            .build();
         transactions.add(tt);
     }
 
@@ -45,20 +47,17 @@ public class Account {
         } else {
             System.out.println(amount + "원 인출하셨습니다.");
             balance -= amount;
-            Transaction tt = new Transaction("출금", amount, balance, day, time);
+            Transaction tt = new Transaction.TransactionBuilder()
+                .transactionDate(day)
+                .transactionTime(time)
+                .kind("출금")
+                .amount(amount)
+                .balance(balance)
+                .build();
             transactions.add(tt);
         }
     }
 
-    //잔고 확인
-    public long getBalance() {
-        return balance;
-    }
-
-    //거래내역 메서드
-    public List<Transaction> getTransactions() {
-        return transactions;
-    }
 
     @Override
     public String toString() {
