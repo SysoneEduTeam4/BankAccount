@@ -1,5 +1,122 @@
 package controller;
 
+import java.util.List;
+import model.Account;
+import model.Bank;
+import model.Transaction;
+import view.OutputView;
+
 public class BankManager {
 
+  private final Bank bank;
+  private final OutputView outputView = new OutputView();
+
+  private void init(){
+    addSampleData(bank);
+    task(bank);
+  }
+
+  public BankManager(Bank bank) {
+    this.bank = bank;
+  }
+
+  public static void run(){
+    Bank bank = new Bank();
+    BankManager bankManager = new BankManager(bank);
+    bankManager.init();
+  }
+
+  private void task(Bank bank) {
+    requestAllAccounts(bank);
+    requestAccountByNo(bank.getAccount("890113"));
+    requestAccountDeposit(bank.getAccount("890113"), 200000);
+    requestAccountByNo(bank.getAccount("890113"));
+    requestAccountDeposit(bank.getAccount("890113"), 200000);
+    requestAccountByNo(bank.getAccount("890113"));
+    requestAccountsByName(bank.findAccounts("택"));
+    requestAccountByNo(bank.getAccount("011"));
+    requestAccountsByName(bank.findAccounts("희정"));
+    requestAccountsByName(bank.findAccounts("택"));
+    requestAccountWithDraw(bank.getAccount("890113"), 5500);
+    requestAccountByNo(bank.getAccount("890113"));
+    requestTransactions(bank.getAccount("890113"));
+  }
+
+  private void addSampleData(Bank bank) {
+    bank.addAccount("10071", "백");
+    bank.addAccount("890113", "택");
+    bank.addAccount("0113", "택");
+    bank.addAccount("987654321", "두팔");
+  }
+
+  private void  requestTransactions(Account account) {
+    System.out.println("= 거래 내역 =");
+    List<Transaction> transactions = account.getTransactions();
+      outputView.displayTransactions(transactions);
+
+  }
+
+  /**
+   * 특정 계좌에서 출금하고 잔액을 출력하는 메서드
+   * @param account: 출금할 계좌 객체
+   * @param amount: 출금할 금액
+   */
+  private void  requestAccountWithDraw(Account account, int amount) {
+    account.withdraw(amount);
+    System.out.printf("현재 잔액은 %d원 입니다.%n",account.getBalance());
+    System.out.println();
+    outputView.displayAccountWithDraw(account,amount);
+  }
+
+  /**
+   * 소유자명으로 계좌 목록을 출력하는 메서드
+   * @param accounts: 출력할 계좌 목록
+   */
+  private void  requestAccountsByName(List<Account> accounts) {
+    System.out.println("= 해당 소유자명의 계좌 목록 =");
+    for(Account account : accounts) {
+      System.out.println(account);
+    }
+    System.out.println();
+    outputView.displayAccountsByName(accounts);
+  }
+
+  /**
+   * 특정 계좌에 입금하고 잔액을 출력하는 메서드
+   * @param account: 입금을 할 계좌 객체
+   * @param amount 입금할 금액
+   */
+  private void  requestAccountDeposit(Account account, int amount) {
+    account.deposit(amount);
+    System.out.printf("현재 잔액은 %d원 입니다.%n",account.getBalance());
+    System.out.println();
+    outputView.displayAccountDeposit(account,amount);
+  }
+
+  /**
+   * 계좌 정보를 출력하는 메서드
+   * @param account: 출력할 계좌 객체
+   */
+  private void requestAccountByNo(Account account) {
+    System.out.println("= 해당 계좌번호의 계좌정보 =");
+    if (account != null) {
+      System.out.println(account);
+    }
+    System.out.println();
+    outputView.displayAccountByNo(account);
+  }
+
+  /**
+   * 전체 계좌 목록을 출력하는 메서드
+   * @param bank: 계좌 목록을 조회할 은행 객체
+   */
+  private void requestAllAccounts(Bank bank) {
+    List<Account> accounts =  bank.getAccounts();
+    outputView.displayAllAccounts(accounts);
+  }
+
+  /**
+   * 샘플 데이터를 추가하는 메서드
+   * @param bank 샘플 데이터를 추가할 은행 객체
+   */
 }
