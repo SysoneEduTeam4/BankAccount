@@ -1,7 +1,9 @@
 package model;
 
 import java.time.LocalDateTime;
+import lombok.Getter;
 
+@Getter
 public class DateTime {
 
     private LocalDateTime currentDateTime;
@@ -15,12 +17,6 @@ public class DateTime {
         time = currentDateTime.getHour() + "시" + currentDateTime.getMinute() + "분";
     }
 
-    public String getDate() {
-        return date;
-    }
 
-    public String getTime() {
-        return time;
-    }
 
 }
