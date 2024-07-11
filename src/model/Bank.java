@@ -42,13 +42,13 @@ public class Bank {
      * @return Account[]
      */
     public List<Account> findAccounts(String name) {
-        List<Account> accounts = new ArrayList<>();
-        for (Account account : getAccounts()) {
+        List<Account> accountsByName = new ArrayList<>();
+        for (Account account : accounts) {
             if (account.getName().equals(name)) {
-                accounts.add(account);
+                accountsByName.add(account);
             }
         }
-        return accounts;
+        return accountsByName;
     }
 
     /**
