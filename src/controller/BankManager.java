@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.IOException;
 import java.util.List;
 import model.Account;
 import model.Bank;
@@ -50,10 +51,8 @@ public class BankManager {
   }
 
   private void  requestTransactions(Account account) {
-    System.out.println("= 거래 내역 =");
     List<Transaction> transactions = account.getTransactions();
-      outputView.displayTransactions(transactions);
-
+    outputView.displayTransactions(transactions);
   }
 
   /**
@@ -63,9 +62,7 @@ public class BankManager {
    */
   private void  requestAccountWithDraw(Account account, int amount) {
     account.withdraw(amount);
-    System.out.printf("현재 잔액은 %d원 입니다.%n",account.getBalance());
-    System.out.println();
-    outputView.displayAccountWithDraw(account,amount);
+    outputView.displayAccountWithDraw(account);
   }
 
   /**
@@ -73,11 +70,6 @@ public class BankManager {
    * @param accounts: 출력할 계좌 목록
    */
   private void  requestAccountsByName(List<Account> accounts) {
-    System.out.println("= 해당 소유자명의 계좌 목록 =");
-    for(Account account : accounts) {
-      System.out.println(account);
-    }
-    System.out.println();
     outputView.displayAccountsByName(accounts);
   }
 
@@ -88,9 +80,7 @@ public class BankManager {
    */
   private void  requestAccountDeposit(Account account, int amount) {
     account.deposit(amount);
-    System.out.printf("현재 잔액은 %d원 입니다.%n",account.getBalance());
-    System.out.println();
-    outputView.displayAccountDeposit(account,amount);
+    outputView.displayAccountDeposit(account);
   }
 
   /**
@@ -98,11 +88,9 @@ public class BankManager {
    * @param account: 출력할 계좌 객체
    */
   private void requestAccountByNo(Account account) {
-    System.out.println("= 해당 계좌번호의 계좌정보 =");
-    if (account != null) {
-      System.out.println(account);
+    if (account == null) {
+      System.out.println("Error");
     }
-    System.out.println();
     outputView.displayAccountByNo(account);
   }
 
@@ -114,9 +102,4 @@ public class BankManager {
     List<Account> accounts =  bank.getAccounts();
     outputView.displayAllAccounts(accounts);
   }
-
-  /**
-   * 샘플 데이터를 추가하는 메서드
-   * @param bank 샘플 데이터를 추가할 은행 객체
-   */
 }
