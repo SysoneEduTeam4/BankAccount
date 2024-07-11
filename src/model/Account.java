@@ -2,17 +2,14 @@ package model;
 
 import java.util.ArrayList;
 import java.util.List;
-import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 @Getter
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class Account {
 
-    private String accountNo;
-    private String name;
+    private final String accountNo;
+    private final String name;
     private long balance;
     private final List<Transaction> transactions = new ArrayList<>();
 
