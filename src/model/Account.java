@@ -14,11 +14,6 @@ public class Account {
     private long balance;
     private final List<Transaction> transactions = new ArrayList<>();
 
-    public Account(String accountNo, String name) {
-        this.accountNo = accountNo;
-        this.name = name;
-    }
-
     //입금 메서드
     public void deposit(long amount) {
         DateTime datetime = new DateTime();
