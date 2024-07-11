@@ -17,10 +17,8 @@ public class OutputView {
   /**
    * 특정 계좌에서 출금하고 잔액을 출력하는 메서드
    * @param account: 출금할 계좌 객체
-   * @param amount: 출금할 금액
    */
-  public void displayAccountWithDraw(Account account, int amount) {
-    account.withdraw(amount);
+  public void displayAccountWithDraw(Account account) {
     System.out.printf("현재 잔액은 %d원 입니다.%n",account.getBalance());
     System.out.println();
   }
@@ -40,10 +38,8 @@ public class OutputView {
   /**
    * 특정 계좌에 입금하고 잔액을 출력하는 메서드
    * @param account: 입금을 할 계좌 객체
-   * @param amount 입금할 금액
    */
-  public void displayAccountDeposit(Account account, int amount) {
-    account.deposit(amount);
+  public void displayAccountDeposit(Account account) {
     System.out.printf("현재 잔액은 %d원 입니다.%n",account.getBalance());
     System.out.println();
   }
@@ -54,15 +50,13 @@ public class OutputView {
    */
   public void displayAccountByNo(Account account) {
     System.out.println("= 해당 계좌번호의 계좌정보 =");
-    if (account != null) {
-      System.out.println(account);
-    }
+    System.out.println(account);
     System.out.println();
   }
 
   /**
    * 전체 계좌 목록을 출력하는 메서드
-   * @param bank: 계좌 목록을 조회할 은행 객체
+   * @param accounts: 계좌 목록
    */
   public void displayAllAccounts(List<Account> accounts) {
     System.out.println("= 전체 계좌 목록 =");
