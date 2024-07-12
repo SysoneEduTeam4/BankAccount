@@ -14,7 +14,7 @@ public class DateTime {
 
     public DateTime() {
         LocalDateTime currentDateTime = LocalDateTime.now();
-        date = currentDateTime.format(DateTimeFormatter.ofPattern("yyyy년mm월dd일"));
+        date = currentDateTime.format(DateTimeFormatter.ofPattern("yyyy년MM월dd일"));
         time = currentDateTime.format(DateTimeFormatter.ofPattern("HH시mm분"));
     }
 
