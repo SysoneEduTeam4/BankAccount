@@ -16,7 +16,10 @@ public class Bank {
      * @param name: 소유주 명
      */
     public void addAccount(String accountNo, String name) {
-        Account account = new Account(accountNo, name);
+    	Account account = new Account.AccountBuilder()
+    						.accountNo(accountNo)
+    						.name(name)
+    						.build();
         accounts.add(account);
         totalAccount++;
     }
@@ -49,5 +52,7 @@ public class Bank {
         }
         return accounts;
     }
+    
+    
 
 }
