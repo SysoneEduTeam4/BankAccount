@@ -1,7 +1,11 @@
 package model;
 
+import java.time.format.DateTimeFormatter;
+import lombok.Getter;
+
 import java.time.LocalDateTime;
 
+@Getter
 public class DateTime {
 
     private LocalDateTime currentDateTime;
@@ -10,17 +14,8 @@ public class DateTime {
 
     public DateTime() {
         LocalDateTime currentDateTime = LocalDateTime.now();
-        date = currentDateTime.getYear() + "년" + currentDateTime.getMonthValue() + "월"
-                + currentDateTime.getDayOfWeek().getValue() + "일";
-        time = currentDateTime.getHour() + "시" + currentDateTime.getMinute() + "분";
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public String getTime() {
-        return time;
+        date = currentDateTime.format(DateTimeFormatter.ofPattern("yyyy년MM월dd일"));
+        time = currentDateTime.format(DateTimeFormatter.ofPattern("HH시mm분"));
     }
 
 }
