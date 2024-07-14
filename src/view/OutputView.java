@@ -1,14 +1,18 @@
 package view;
 
+import static view.Const.showAccountsByName;
+import static view.Const.showAccountsByNo;
+import static view.Const.showAllAccounts;
+import static view.Const.showTransactionList;
+
 import java.util.List;
 import model.Account;
-import model.Bank;
 import model.Transaction;
 
 public class OutputView {
 
   public void displayTransactions(List<Transaction> transactions) {
-    System.out.println("= 거래 내역 =");
+    showTransactionList();
     for(Transaction transaction : transactions) {
       System.out.println(transaction);
     }
@@ -28,7 +32,7 @@ public class OutputView {
    * @param accounts: 출력할 계좌 목록
    */
   public void displayAccountsByName(List<Account> accounts) {
-    System.out.println("= 해당 소유자명의 계좌 목록 =");
+    showAccountsByName();
     for(Account account : accounts) {
       System.out.println(account);
     }
@@ -49,7 +53,7 @@ public class OutputView {
    * @param account: 출력할 계좌 객체
    */
   public void displayAccountByNo(Account account) {
-    System.out.println("= 해당 계좌번호의 계좌정보 =");
+    showAccountsByNo();
     System.out.println(account);
     System.out.println();
   }
@@ -59,7 +63,7 @@ public class OutputView {
    * @param accounts: 계좌 목록
    */
   public void displayAllAccounts(List<Account> accounts) {
-    System.out.println("= 전체 계좌 목록 =");
+    showAllAccounts();
     for (Account account: accounts) {
       System.out.println(account);
     }
